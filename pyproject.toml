@@ -1,0 +1,22 @@
+[project]
+name = "rag-agent-multipletools"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Your Name",email = "you@example.com"}
+]
+requires-python = ">=3.14,<4.0.0"
+dependencies = [
+    "dotenv (>=0.9.9,<0.10.0)",
+    "black (>=26.3.1,<27.0.0)",
+    "isort (>=8.0.1,<9.0.0)",
+    "langchain (>=1.2.15,<2.0.0)",
+    "langchain-tavily (>=0.2.18,<0.3.0)",
+    "langchain-openai (>=1.2.1,<2.0.0)",
+    "langgraph (>=1.1.9,<2.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
