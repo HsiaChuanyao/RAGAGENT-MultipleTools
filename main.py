@@ -63,15 +63,6 @@ def rag_retriever(query:str):
     return serialize_return
 
 def main(user_id, thread_id, query):
-    if not user_id:
-        user_id = str(uuid.uuid4())
-    if not thread_id:
-        thread_id = str(uuid.uuid4())
-        query = input("Please enter a query: ")
-        if query.lower() in ["exit", "quit"]:
-            return
-        if not query:
-            print("Please enter a query")
     agent = create_agent(
         model = llm,
         tools = [tavily_search, rag_retriever],
@@ -97,6 +88,13 @@ if __name__ == "__main__":
     u_id = input("Please enter a user ID: ")
     t_id = input("Please enter a thread ID: ")
     q = input("Please enter a query: ")
+    if not u_id or not t_id:
+        u_id = str(uuid.uuid4())
+        t_id = str(uuid.uuid4())
+    if not q:
+        print("Please enter a query.")
+    if q.lower() in ["exit", "quit"]:
+        exit()
     print("AI is loading")
     response = main(u_id, t_id, q)
     print(f"Query: {q}\n\nAnswer: {response}")
